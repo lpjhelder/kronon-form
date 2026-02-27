@@ -262,6 +262,47 @@
             font-weight: 600;
         }
 
+        .toggle-btn.active-neutral {
+            border-color: #f59e0b;
+            background: #fffbeb;
+            color: #a16207;
+        }
+
+        .btn-skip {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1.5px dashed #d6d3d1;
+            background: #fafaf9;
+            color: #78716c;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+            margin-bottom: 16px;
+        }
+
+        .btn-skip:hover {
+            border-color: #f59e0b;
+            color: #a16207;
+        }
+
+        .btn-skip.active {
+            border-color: #f59e0b;
+            background: #fffbeb;
+            color: #a16207;
+            border-style: solid;
+        }
+
+        .pc-questions {
+            transition: all 0.3s ease;
+        }
+
+        .pc-questions.hidden {
+            display: none;
+        }
+
         /* Conditional sections */
         .ti-fields {
             max-height: 0;
@@ -518,41 +559,46 @@
                     <div class="card-subtitle">Onde o sistema será instalado</div>
                 </div>
             </div>
-            <div class="field">
-                <label>Sistema operacional Windows 10+ ou Windows Server?</label>
-                <div class="toggle-group">
-                    <button class="toggle-btn" onclick="selectToggle(this, 'windows', true)">Sim</button>
-                    <button class="toggle-btn" onclick="selectToggle(this, 'windows', false)">Não</button>
+            <button class="btn-skip" id="btn_skip_pc" onclick="skipPC(this)">Não tenho essas informações</button>
+            <div class="pc-questions" id="pc_questions">
+                <div class="field">
+                    <label>Sistema operacional Windows 10+ ou Windows Server?</label>
+                    <div class="toggle-group">
+                        <button class="toggle-btn" onclick="selectToggle(this, 'windows', true)">Sim</button>
+                        <button class="toggle-btn" onclick="selectToggle(this, 'windows', false)">Não</button>
+                        <button class="toggle-btn" onclick="selectToggle(this, 'windows', 'naosei')">Não sei</button>
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label>O computador que acessa o B2B está na mesma rede do ERP?</label>
-                <div class="toggle-group">
-                    <button class="toggle-btn" onclick="selectToggle(this, 'rede', true)">Sim</button>
-                    <button class="toggle-btn" onclick="selectToggle(this, 'rede', false)">Não</button>
+                <div class="field">
+                    <label>O computador que acessa o B2B está na mesma rede do ERP?</label>
+                    <div class="toggle-group">
+                        <button class="toggle-btn" onclick="selectToggle(this, 'rede', true)">Sim</button>
+                        <button class="toggle-btn" onclick="selectToggle(this, 'rede', false)">Não</button>
+                        <button class="toggle-btn" onclick="selectToggle(this, 'rede', 'naosei')">Não sei</button>
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label>Antivírus instalado</label>
-                <div class="option-group">
-                    <button class="option-btn" onclick="selectOption(this, 'antivirus')">Windows Defender</button>
-                    <button class="option-btn" onclick="selectOption(this, 'antivirus')">Kaspersky</button>
-                    <button class="option-btn" onclick="selectOption(this, 'antivirus')">Avast</button>
-                    <button class="option-btn" onclick="selectOption(this, 'antivirus')">Norton</button>
-                    <button class="option-btn" onclick="selectOption(this, 'antivirus')">Outro</button>
-                    <button class="option-btn" onclick="selectOption(this, 'antivirus')">Não sei</button>
+                <div class="field">
+                    <label>Antivírus instalado</label>
+                    <div class="option-group">
+                        <button class="option-btn" onclick="selectOption(this, 'antivirus')">Windows Defender</button>
+                        <button class="option-btn" onclick="selectOption(this, 'antivirus')">Kaspersky</button>
+                        <button class="option-btn" onclick="selectOption(this, 'antivirus')">Avast</button>
+                        <button class="option-btn" onclick="selectOption(this, 'antivirus')">Norton</button>
+                        <button class="option-btn" onclick="selectOption(this, 'antivirus')">Outro</button>
+                        <button class="option-btn" onclick="selectOption(this, 'antivirus')">Não sei</button>
+                    </div>
                 </div>
-            </div>
-            <div class="field" id="antivirus_outro_field" style="display:none;">
-                <label>Qual antivírus?</label>
-                <input type="text" id="antivirus_outro" placeholder="Nome do antivírus">
-            </div>
-            <div class="field">
-                <label>Navegador utilizado para acessar o B2B</label>
-                <div class="option-group">
-                    <button class="option-btn" onclick="selectOption(this, 'navegador')">Chrome</button>
-                    <button class="option-btn" onclick="selectOption(this, 'navegador')">Edge</button>
-                    <button class="option-btn" onclick="selectOption(this, 'navegador')">Outro</button>
+                <div class="field" id="antivirus_outro_field" style="display:none;">
+                    <label>Qual antivírus?</label>
+                    <input type="text" id="antivirus_outro" placeholder="Nome do antivírus">
+                </div>
+                <div class="field">
+                    <label>Navegador utilizado para acessar o B2B</label>
+                    <div class="option-group">
+                        <button class="option-btn" onclick="selectOption(this, 'navegador')">Chrome</button>
+                        <button class="option-btn" onclick="selectOption(this, 'navegador')">Edge</button>
+                        <button class="option-btn" onclick="selectOption(this, 'navegador')">Outro</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -604,8 +650,26 @@
 
         function selectToggle(btn, key, value) {
             state[key] = value;
-            btn.parentElement.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active-yes', 'active-no'));
-            btn.classList.add(value ? 'active-yes' : 'active-no');
+            btn.parentElement.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active-yes', 'active-no', 'active-neutral'));
+            if (value === 'naosei') btn.classList.add('active-neutral');
+            else btn.classList.add(value ? 'active-yes' : 'active-no');
+        }
+
+        function skipPC(btn) {
+            const q = document.getElementById('pc_questions');
+            const skipped = !q.classList.contains('hidden');
+            state.skipPC = skipped;
+            if (skipped) {
+                q.classList.add('hidden');
+                btn.classList.add('active');
+                btn.textContent = 'Não tenho essas informações (selecionado)';
+                state.windows = 'naosei'; state.rede = 'naosei'; state.antivirus = 'Não sei'; state.navegador = null;
+            } else {
+                q.classList.remove('hidden');
+                btn.classList.remove('active');
+                btn.textContent = 'Não tenho essas informações';
+                state.windows = null; state.rede = null; state.antivirus = null; state.navegador = null;
+            }
         }
 
         function selectOption(btn, key) {
@@ -640,7 +704,7 @@
                 tiValue = 'Não respondido';
             }
 
-            const yn = v => v === true ? 'Sim' : v === false ? 'Não' : 'Não respondido';
+            const yn = v => v === true ? 'Sim' : v === false ? 'Não' : v === 'naosei' ? 'Não sei' : 'Não respondido';
 
             const payload = {
                 embeds: [{
