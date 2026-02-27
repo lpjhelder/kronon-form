@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kronon B2B — Formulário de Pré-Instalação</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,8 +15,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
+            background: #f8f8f6;
+            color: #1a1a1a;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -28,46 +28,60 @@
             width: 100%;
         }
 
+        /* Header */
         .header {
             text-align: center;
             margin-bottom: 32px;
-        }
-
-        .header h1 {
-            font-size: 24px;
-            font-weight: 700;
+            padding: 28px 20px;
+            background: linear-gradient(135deg, #c41e1e, #e63c3c);
+            border-radius: 20px;
             color: #fff;
-            margin-bottom: 4px;
+            box-shadow: 0 8px 32px rgba(196, 30, 30, 0.25);
         }
 
-        .header h1 span {
-            color: #3b82f6;
+        .header .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 2px;
+        }
+
+        .header .logo span {
+            color: #fcd34d;
         }
 
         .header p {
             font-size: 13px;
-            color: #94a3b8;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
         }
 
+        /* Cards */
         .card {
-            background: #1e293b;
+            background: #fff;
             border-radius: 16px;
-            padding: 28px 24px;
-            margin-bottom: 20px;
-            border: 1px solid #334155;
+            padding: 24px;
+            margin-bottom: 16px;
+            border: 1px solid #e8e8e4;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
         }
 
         .card-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 18px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         .card-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -75,29 +89,31 @@
             flex-shrink: 0;
         }
 
-        .card-icon.blue {
-            background: rgba(59, 130, 246, 0.15);
+        .card-icon.red {
+            background: #fef2f2;
         }
 
         .card-icon.yellow {
-            background: rgba(234, 179, 8, 0.15);
+            background: #fffbeb;
         }
 
-        .card-icon.green {
-            background: rgba(16, 185, 129, 0.15);
+        .card-icon.gray {
+            background: #f5f5f4;
         }
 
         .card-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #f1f5f9;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a1a;
         }
 
         .card-subtitle {
             font-size: 12px;
-            color: #64748b;
+            color: #78716c;
+            margin-top: 1px;
         }
 
+        /* Fields */
         .field {
             margin-bottom: 16px;
         }
@@ -108,10 +124,12 @@
 
         label {
             display: block;
-            font-size: 13px;
-            font-weight: 500;
-            color: #94a3b8;
+            font-size: 12px;
+            font-weight: 600;
+            color: #57534e;
             margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         input[type="text"],
@@ -119,26 +137,28 @@
         input[type="tel"],
         input[type="number"] {
             width: 100%;
-            padding: 10px 14px;
-            background: #0f172a;
-            border: 1px solid #334155;
+            padding: 12px 14px;
+            background: #fafaf9;
+            border: 1.5px solid #e7e5e4;
             border-radius: 10px;
-            color: #f1f5f9;
+            color: #1a1a1a;
             font-size: 14px;
             font-family: 'Inter', sans-serif;
-            transition: border 0.2s;
+            transition: all 0.2s;
         }
 
         input:focus {
             outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            border-color: #c41e1e;
+            box-shadow: 0 0 0 3px rgba(196, 30, 30, 0.08);
+            background: #fff;
         }
 
         input::placeholder {
-            color: #475569;
+            color: #a8a29e;
         }
 
+        /* Toggle buttons */
         .toggle-group {
             display: flex;
             gap: 10px;
@@ -146,11 +166,11 @@
 
         .toggle-btn {
             flex: 1;
-            padding: 10px;
+            padding: 11px;
             border-radius: 10px;
-            border: 2px solid #334155;
-            background: #0f172a;
-            color: #94a3b8;
+            border: 2px solid #e7e5e4;
+            background: #fafaf9;
+            color: #78716c;
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
@@ -160,21 +180,23 @@
         }
 
         .toggle-btn:hover {
-            border-color: #475569;
+            border-color: #d6d3d1;
+            background: #f5f5f4;
         }
 
         .toggle-btn.active-yes {
-            border-color: #10b981;
-            background: rgba(16, 185, 129, 0.1);
-            color: #10b981;
+            border-color: #16a34a;
+            background: #f0fdf4;
+            color: #15803d;
         }
 
         .toggle-btn.active-no {
-            border-color: #ef4444;
-            background: rgba(239, 68, 68, 0.1);
-            color: #ef4444;
+            border-color: #dc2626;
+            background: #fef2f2;
+            color: #dc2626;
         }
 
+        /* Option pills */
         .option-group {
             display: flex;
             flex-wrap: wrap;
@@ -184,9 +206,9 @@
         .option-btn {
             padding: 8px 16px;
             border-radius: 20px;
-            border: 1.5px solid #334155;
-            background: #0f172a;
-            color: #94a3b8;
+            border: 1.5px solid #e7e5e4;
+            background: #fafaf9;
+            color: #78716c;
             font-size: 13px;
             font-weight: 500;
             cursor: pointer;
@@ -195,15 +217,18 @@
         }
 
         .option-btn:hover {
-            border-color: #475569;
+            border-color: #d6d3d1;
+            background: #f5f5f4;
         }
 
         .option-btn.active {
-            border-color: #3b82f6;
-            background: rgba(59, 130, 246, 0.1);
-            color: #3b82f6;
+            border-color: #c41e1e;
+            background: #fef2f2;
+            color: #c41e1e;
+            font-weight: 600;
         }
 
+        /* TI conditional */
         .ti-fields {
             max-height: 0;
             overflow: hidden;
@@ -217,34 +242,36 @@
             margin-top: 16px;
         }
 
+        /* Card hidden */
         .card-hidden {
             display: none;
         }
 
         .card-hidden.show {
             display: block;
-            animation: fadeIn 0.3s ease;
+            animation: fadeSlide 0.4s ease;
         }
 
+        /* Send button */
         .btn-send {
             width: 100%;
             padding: 14px;
             border-radius: 12px;
             border: none;
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            background: linear-gradient(135deg, #c41e1e, #e63c3c);
             color: #fff;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             font-family: 'Inter', sans-serif;
             transition: all 0.2s;
             margin-top: 8px;
-            position: relative;
+            box-shadow: 0 4px 16px rgba(196, 30, 30, 0.25);
         }
 
         .btn-send:hover {
             transform: translateY(-1px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 8px 24px rgba(196, 30, 30, 0.35);
         }
 
         .btn-send:active {
@@ -259,11 +286,13 @@
         }
 
         .btn-send.sending {
-            background: #475569;
+            background: #a8a29e;
+            box-shadow: none;
         }
 
         .btn-send.sent {
-            background: linear-gradient(135deg, #10b981, #059669);
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            box-shadow: 0 4px 16px rgba(22, 163, 74, 0.3);
         }
 
         /* Success overlay */
@@ -271,25 +300,26 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(15, 23, 42, 0.92);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
             z-index: 100;
             justify-content: center;
             align-items: center;
-            animation: fadeIn 0.3s ease;
         }
 
         .success-overlay.show {
             display: flex;
+            animation: fadeIn 0.3s ease;
         }
 
         .success-box {
-            background: #1e293b;
-            border: 1px solid #334155;
+            background: #fff;
             border-radius: 20px;
             padding: 40px;
             text-align: center;
             max-width: 400px;
             width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             animation: scaleIn 0.3s ease;
         }
 
@@ -300,24 +330,24 @@
 
         .success-title {
             font-size: 20px;
-            font-weight: 700;
-            color: #f1f5f9;
+            font-weight: 800;
+            color: #1a1a1a;
             margin-bottom: 8px;
         }
 
         .success-msg {
             font-size: 14px;
-            color: #94a3b8;
+            color: #78716c;
             margin-bottom: 24px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .btn-close {
             padding: 12px 32px;
             border-radius: 10px;
-            border: 2px solid #334155;
-            background: transparent;
-            color: #94a3b8;
+            border: 2px solid #e7e5e4;
+            background: #fff;
+            color: #78716c;
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
@@ -326,8 +356,31 @@
         }
 
         .btn-close:hover {
-            border-color: #3b82f6;
-            color: #3b82f6;
+            border-color: #c41e1e;
+            color: #c41e1e;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            padding: 16px;
+            font-size: 11px;
+            color: #a8a29e;
+        }
+
+        .footer a {
+            color: #c41e1e;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Divider accent */
+        .accent-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #c41e1e, #fbbf24, #c41e1e);
+            border-radius: 2px;
+            margin-bottom: 16px;
         }
 
         @keyframes fadeIn {
@@ -351,21 +404,37 @@
                 transform: scale(1);
             }
         }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
 <body>
 
     <div class="container">
+
+        <!-- Header -->
         <div class="header">
-            <h1><span>Kronon</span> Analytics B2B</h1>
+            <div class="logo"><span>Kronon</span> Analytics B2B</div>
             <p>Formulário de Pré-Instalação</p>
         </div>
+
+        <div class="accent-bar"></div>
 
         <!-- 1. Dados da Empresa -->
         <div class="card">
             <div class="card-header">
-                <div class="card-icon blue">🏪</div>
+                <div class="card-icon red">🏪</div>
                 <div>
                     <div class="card-title">Dados da Empresa</div>
                     <div class="card-subtitle">Informações básicas da loja</div>
@@ -414,7 +483,7 @@
         <!-- 3. Computador (só aparece se NÃO tem TI) -->
         <div class="card card-hidden" id="card_computador">
             <div class="card-header">
-                <div class="card-icon green">💻</div>
+                <div class="card-icon gray">💻</div>
                 <div>
                     <div class="card-title">Sobre o Computador</div>
                     <div class="card-subtitle">Onde o Kronon será instalado</div>
@@ -459,7 +528,9 @@
             </div>
         </div>
 
-        <button class="btn-send" id="btn_send" onclick="enviar()">📨 Enviar Formulário</button>
+        <button class="btn-send" id="btn_send" onclick="enviar()">Enviar Formulário →</button>
+
+        <div class="footer">Powered by <a href="#">Kronon Analytics</a> • Todos os direitos reservados</div>
     </div>
 
     <!-- Success -->
@@ -486,15 +557,14 @@
             const pc = document.getElementById('card_computador');
             if (value) {
                 f.classList.add('show');
-                pc.classList.remove('show'); // Tem TI = esconde computador
-                // Limpa respostas do computador
+                pc.classList.remove('show');
                 state.windows = null; state.rede = null; state.antivirus = null; state.navegador = null;
                 pc.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active-yes', 'active-no'));
                 pc.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
             } else {
                 f.classList.remove('show');
                 ['ti_nome', 'ti_telefone', 'ti_email'].forEach(id => document.getElementById(id).value = '');
-                pc.classList.add('show'); // Sem TI = mostra computador
+                pc.classList.add('show');
             }
         }
 
@@ -524,7 +594,6 @@
             let av = state.antivirus || 'Não respondido';
             if (av === 'Outro') av = val('antivirus_outro') || 'Outro (não especificado)';
 
-            // Build TI field
             let tiValue = '';
             if (state.temTI === true) {
                 const parts = [];
@@ -541,13 +610,12 @@
             const payload = {
                 embeds: [{
                     title: "📋 Novo Formulário de Pré-Instalação",
-                    color: 3447003, // blue
+                    color: 12854046, // red #c41e1e
                     fields: [
                         { name: "🏪 Loja", value: nome, inline: true },
                         { name: "📄 CNPJ", value: val('cnpj') || 'Não informado', inline: true },
                         { name: "🏢 Filiais", value: val('filiais') || 'Não informado', inline: true },
                         { name: "👤 Responsável de TI", value: tiValue, inline: false },
-                        // Campos do computador só se NÃO tem TI
                         ...(state.temTI !== true ? [
                             { name: "💻 Windows 10+ / Server", value: emoji(state.windows), inline: true },
                             { name: "🌐 Mesma rede do ERP", value: emoji(state.rede), inline: true },
@@ -566,16 +634,13 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
-
                 if (res.ok || res.status === 204) {
                     btn.classList.remove('sending'); btn.classList.add('sent'); btn.textContent = '✅ Enviado!';
                     document.getElementById('success_overlay').classList.add('show');
-                } else {
-                    throw new Error(`Status ${res.status}`);
-                }
+                } else { throw new Error(`Status ${res.status}`); }
             } catch (e) {
                 btn.disabled = false; btn.classList.remove('sending');
-                btn.textContent = '📨 Enviar Formulário';
+                btn.textContent = 'Enviar Formulário →';
                 alert('Erro ao enviar. Verifique sua conexão e tente novamente.');
                 console.error(e);
             }
