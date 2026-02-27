@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kronon B2B — Formulário de Pré-Instalação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 30px 16px;
+        }
+
+        .container {
+            max-width: 560px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .header h1 span {
+            color: #3b82f6;
+        }
+
+        .header p {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .card {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .card-icon.blue {
+            background: rgba(59, 130, 246, 0.15);
+        }
+
+        .card-icon.yellow {
+            background: rgba(234, 179, 8, 0.15);
+        }
+
+        .card-icon.green {
+            background: rgba(16, 185, 129, 0.15);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        .card-subtitle {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .field {
+            margin-bottom: 16px;
+        }
+
+        .field:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 14px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            color: #f1f5f9;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: border 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        input::placeholder {
+            color: #475569;
+        }
+
+        .toggle-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #334155;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+        }
+
+        .toggle-btn:hover {
+            border-color: #475569;
+        }
+
+        .toggle-btn.active-yes {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+        }
+
+        .toggle-btn.active-no {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        .option-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .option-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1.5px solid #334155;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .option-btn:hover {
+            border-color: #475569;
+        }
+
+        .option-btn.active {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+
+        .ti-fields {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .ti-fields.show {
+            max-height: 300px;
+            opacity: 1;
+            margin-top: 16px;
+        }
+
+        .card-hidden {
+            display: none;
+        }
+
+        .card-hidden.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .btn-send {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+            margin-top: 8px;
+            position: relative;
+        }
+
+        .btn-send:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-send:active {
+            transform: translateY(0);
+        }
+
+        .btn-send:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-send.sending {
+            background: #475569;
+        }
+
+        .btn-send.sent {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        /* Success overlay */
+        .success-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.92);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .success-overlay.show {
+            display: flex;
+        }
+
+        .success-box {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            animation: scaleIn 0.3s ease;
+        }
+
+        .success-icon {
+            font-size: 56px;
+            margin-bottom: 16px;
+        }
+
+        .success-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 8px;
+        }
+
+        .success-msg {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .btn-close {
+            padding: 12px 32px;
+            border-radius: 10px;
+            border: 2px solid #334155;
+            background: transparent;
+            color: #94a3b8;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .btn-close:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1><span>Kronon</span> Analytics B2B</h1>
+            <p>Formulário de Pré-Instalação</p>
+        </div>
+
+        <!-- 1. Dados da Empresa -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon blue">🏪</div>
+                <div>
+                    <div class="card-title">Dados da Empresa</div>
+                    <div class="card-subtitle">Informações básicas da loja</div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Nome da Loja / Razão Social *</label>
+                <input type="text" id="nome_loja" placeholder="Ex: Supermercado Bom Preço">
+            </div>
+            <div class="field">
+                <label>CNPJ</label>
+                <input type="text" id="cnpj" placeholder="00.000.000/0000-00">
+            </div>
+            <div class="field">
+                <label>Quantidade de filiais</label>
+                <input type="number" id="filiais" placeholder="Ex: 3" min="1">
+            </div>
+        </div>
+
+        <!-- 2. TI -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon yellow">👤</div>
+                <div>
+                    <div class="card-title">Responsável de TI</div>
+                    <div class="card-subtitle">A loja tem alguém responsável pela TI?</div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Tem responsável de TI?</label>
+                <div class="toggle-group">
+                    <button class="toggle-btn" onclick="toggleTI(true, this)">✅ Sim</button>
+                    <button class="toggle-btn" onclick="toggleTI(false, this)">❌ Não</button>
+                </div>
+            </div>
+            <div class="ti-fields" id="ti_fields">
+                <div class="field"><label>Nome completo</label><input type="text" id="ti_nome"
+                        placeholder="Nome do responsável"></div>
+                <div class="field"><label>Telefone / WhatsApp</label><input type="tel" id="ti_telefone"
+                        placeholder="(00) 00000-0000"></div>
+                <div class="field"><label>E-mail</label><input type="email" id="ti_email"
+                        placeholder="email@exemplo.com"></div>
+            </div>
+        </div>
+
+        <!-- 3. Computador (só aparece se NÃO tem TI) -->
+        <div class="card card-hidden" id="card_computador">
+            <div class="card-header">
+                <div class="card-icon green">💻</div>
+                <div>
+                    <div class="card-title">Sobre o Computador</div>
+                    <div class="card-subtitle">Onde o Kronon será instalado</div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Windows 10 ou superior (ou Windows Server)?</label>
+                <div class="toggle-group">
+                    <button class="toggle-btn" onclick="selectToggle(this, 'windows', true)">✅ Sim</button>
+                    <button class="toggle-btn" onclick="selectToggle(this, 'windows', false)">❌ Não</button>
+                </div>
+            </div>
+            <div class="field">
+                <label>O computador que acessa o B2B está na mesma rede do ERP?</label>
+                <div class="toggle-group">
+                    <button class="toggle-btn" onclick="selectToggle(this, 'rede', true)">✅ Sim</button>
+                    <button class="toggle-btn" onclick="selectToggle(this, 'rede', false)">❌ Não</button>
+                </div>
+            </div>
+            <div class="field">
+                <label>Antivírus instalado</label>
+                <div class="option-group">
+                    <button class="option-btn" onclick="selectOption(this, 'antivirus')">Windows Defender</button>
+                    <button class="option-btn" onclick="selectOption(this, 'antivirus')">Kaspersky</button>
+                    <button class="option-btn" onclick="selectOption(this, 'antivirus')">Avast</button>
+                    <button class="option-btn" onclick="selectOption(this, 'antivirus')">Norton</button>
+                    <button class="option-btn" onclick="selectOption(this, 'antivirus')">Outro</button>
+                    <button class="option-btn" onclick="selectOption(this, 'antivirus')">Não sei</button>
+                </div>
+            </div>
+            <div class="field" id="antivirus_outro_field" style="display:none;">
+                <label>Qual antivírus?</label>
+                <input type="text" id="antivirus_outro" placeholder="Nome do antivírus">
+            </div>
+            <div class="field">
+                <label>Navegador para acessar o B2B</label>
+                <div class="option-group">
+                    <button class="option-btn" onclick="selectOption(this, 'navegador')">Chrome</button>
+                    <button class="option-btn" onclick="selectOption(this, 'navegador')">Edge</button>
+                    <button class="option-btn" onclick="selectOption(this, 'navegador')">Outro</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-send" id="btn_send" onclick="enviar()">📨 Enviar Formulário</button>
+    </div>
+
+    <!-- Success -->
+    <div class="success-overlay" id="success_overlay">
+        <div class="success-box">
+            <div class="success-icon">✅</div>
+            <div class="success-title">Enviado com sucesso!</div>
+            <div class="success-msg">Suas informações foram recebidas. Entraremos em contato em breve para agendar a
+                instalação.</div>
+            <button class="btn-close"
+                onclick="document.getElementById('success_overlay').classList.remove('show')">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        const WEBHOOK = "https://discord.com/api/webhooks/1476962204191424696/9GdC0IneOqd5uKopR72fpuFWbB34a8rJSAeewAhCoi7HwEuhF_4H0aLYGdjYZTfuwzPc";
+        const state = { temTI: null, windows: null, rede: null, antivirus: null, navegador: null };
+
+        function toggleTI(value, btn) {
+            state.temTI = value;
+            btn.parentElement.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active-yes', 'active-no'));
+            btn.classList.add(value ? 'active-yes' : 'active-no');
+            const f = document.getElementById('ti_fields');
+            const pc = document.getElementById('card_computador');
+            if (value) {
+                f.classList.add('show');
+                pc.classList.remove('show'); // Tem TI = esconde computador
+                // Limpa respostas do computador
+                state.windows = null; state.rede = null; state.antivirus = null; state.navegador = null;
+                pc.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active-yes', 'active-no'));
+                pc.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+            } else {
+                f.classList.remove('show');
+                ['ti_nome', 'ti_telefone', 'ti_email'].forEach(id => document.getElementById(id).value = '');
+                pc.classList.add('show'); // Sem TI = mostra computador
+            }
+        }
+
+        function selectToggle(btn, key, value) {
+            state[key] = value;
+            btn.parentElement.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active-yes', 'active-no'));
+            btn.classList.add(value ? 'active-yes' : 'active-no');
+        }
+
+        function selectOption(btn, key) {
+            btn.parentElement.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            state[key] = btn.textContent.trim();
+            if (key === 'antivirus') document.getElementById('antivirus_outro_field').style.display = state.antivirus === 'Outro' ? 'block' : 'none';
+        }
+
+        function val(id) { return document.getElementById(id).value.trim(); }
+        function emoji(v) { return v === true ? '✅ Sim' : v === false ? '❌ Não' : '⚠️ Não respondido'; }
+
+        async function enviar() {
+            const nome = val('nome_loja');
+            if (!nome) { alert('Preencha o nome da loja.'); return; }
+
+            const btn = document.getElementById('btn_send');
+            btn.disabled = true; btn.classList.add('sending'); btn.textContent = '⏳ Enviando...';
+
+            let av = state.antivirus || 'Não respondido';
+            if (av === 'Outro') av = val('antivirus_outro') || 'Outro (não especificado)';
+
+            // Build TI field
+            let tiValue = '';
+            if (state.temTI === true) {
+                const parts = [];
+                if (val('ti_nome')) parts.push(`👤 ${val('ti_nome')}`);
+                if (val('ti_telefone')) parts.push(`📱 ${val('ti_telefone')}`);
+                if (val('ti_email')) parts.push(`📧 ${val('ti_email')}`);
+                tiValue = parts.length ? parts.join('\n') : 'Sim (dados não preenchidos)';
+            } else if (state.temTI === false) {
+                tiValue = 'Não possui';
+            } else {
+                tiValue = '⚠️ Não respondido';
+            }
+
+            const payload = {
+                embeds: [{
+                    title: "📋 Novo Formulário de Pré-Instalação",
+                    color: 3447003, // blue
+                    fields: [
+                        { name: "🏪 Loja", value: nome, inline: true },
+                        { name: "📄 CNPJ", value: val('cnpj') || 'Não informado', inline: true },
+                        { name: "🏢 Filiais", value: val('filiais') || 'Não informado', inline: true },
+                        { name: "👤 Responsável de TI", value: tiValue, inline: false },
+                        // Campos do computador só se NÃO tem TI
+                        ...(state.temTI !== true ? [
+                            { name: "💻 Windows 10+ / Server", value: emoji(state.windows), inline: true },
+                            { name: "🌐 Mesma rede do ERP", value: emoji(state.rede), inline: true },
+                            { name: "🛡️ Antivírus", value: av, inline: true },
+                            { name: "🌎 Navegador", value: state.navegador || 'Não respondido', inline: true },
+                        ] : []),
+                    ],
+                    footer: { text: "Kronon Analytics B2B • Formulário de Pré-Instalação" },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            try {
+                const res = await fetch(WEBHOOK, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (res.ok || res.status === 204) {
+                    btn.classList.remove('sending'); btn.classList.add('sent'); btn.textContent = '✅ Enviado!';
+                    document.getElementById('success_overlay').classList.add('show');
+                } else {
+                    throw new Error(`Status ${res.status}`);
+                }
+            } catch (e) {
+                btn.disabled = false; btn.classList.remove('sending');
+                btn.textContent = '📨 Enviar Formulário';
+                alert('Erro ao enviar. Verifique sua conexão e tente novamente.');
+                console.error(e);
+            }
+        }
+    </script>
+</body>
+
+</html>
