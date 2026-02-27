@@ -588,10 +588,12 @@
                 state.windows = null; state.rede = null; state.antivirus = null; state.navegador = null;
                 pc.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active-yes', 'active-no'));
                 pc.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+                setTimeout(() => f.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
             } else {
                 f.classList.remove('show');
                 ['ti_nome', 'ti_telefone', 'ti_email'].forEach(id => document.getElementById(id).value = '');
                 pc.classList.add('show');
+                setTimeout(() => pc.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
             }
         }
 
