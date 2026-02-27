@@ -15,60 +15,90 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f8f8f6;
+            background: #f5f4f1;
             color: #1a1a1a;
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            padding: 30px 16px;
+            padding: 24px 16px;
         }
 
         .container {
-            max-width: 560px;
+            max-width: 540px;
             width: 100%;
         }
 
         /* Header */
         .header {
             text-align: center;
-            margin-bottom: 32px;
-            padding: 28px 20px;
-            background: linear-gradient(135deg, #c41e1e, #e63c3c);
+            margin-bottom: 28px;
+            padding: 32px 24px 24px;
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #e8e5e0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .partnership {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .partnership img {
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .partnership .divider {
+            width: 1px;
+            height: 36px;
+            background: #e0ddd8;
+        }
+
+        .pilot-badge {
+            display: inline-block;
+            padding: 3px 10px;
             border-radius: 20px;
-            color: #fff;
-            box-shadow: 0 8px 32px rgba(196, 30, 30, 0.25);
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 8px;
         }
 
-        .header .logo {
-            font-size: 28px;
+        .header-title {
+            font-size: 22px;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 2px;
+            color: #1a1a1a;
+            margin-bottom: 4px;
         }
 
-        .header .logo span {
-            color: #fcd34d;
-        }
-
-        .header p {
+        .header-sub {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 500;
+            color: #78716c;
+            font-weight: 400;
+        }
+
+        .accent-line {
+            height: 3px;
+            background: linear-gradient(90deg, #c41e1e, #f59e0b, #c41e1e);
+            border-radius: 2px;
+            margin-top: 20px;
         }
 
         /* Cards */
         .card {
             background: #fff;
-            border-radius: 16px;
+            border-radius: 14px;
             padding: 24px;
-            margin-bottom: 16px;
-            border: 1px solid #e8e8e4;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+            margin-bottom: 14px;
+            border: 1px solid #e8e5e0;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
         }
 
         .card-header {
@@ -76,29 +106,35 @@
             align-items: center;
             gap: 12px;
             margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #f0ede8;
         }
 
-        .card-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
+        .card-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 14px;
+            font-weight: 800;
             flex-shrink: 0;
         }
 
-        .card-icon.red {
+        .card-num.n1 {
             background: #fef2f2;
+            color: #c41e1e;
         }
 
-        .card-icon.yellow {
-            background: #fffbeb;
+        .card-num.n2 {
+            background: #fef9c3;
+            color: #a16207;
         }
 
-        .card-icon.gray {
+        .card-num.n3 {
             background: #f5f5f4;
+            color: #57534e;
         }
 
         .card-title {
@@ -108,8 +144,8 @@
         }
 
         .card-subtitle {
-            font-size: 12px;
-            color: #78716c;
+            font-size: 11px;
+            color: #a8a29e;
             margin-top: 1px;
         }
 
@@ -124,12 +160,12 @@
 
         label {
             display: block;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
-            color: #57534e;
+            color: #78716c;
             margin-bottom: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.4px;
         }
 
         input[type="text"],
@@ -137,10 +173,10 @@
         input[type="tel"],
         input[type="number"] {
             width: 100%;
-            padding: 12px 14px;
+            padding: 11px 14px;
             background: #fafaf9;
             border: 1.5px solid #e7e5e4;
-            border-radius: 10px;
+            border-radius: 8px;
             color: #1a1a1a;
             font-size: 14px;
             font-family: 'Inter', sans-serif;
@@ -150,28 +186,28 @@
         input:focus {
             outline: none;
             border-color: #c41e1e;
-            box-shadow: 0 0 0 3px rgba(196, 30, 30, 0.08);
+            box-shadow: 0 0 0 3px rgba(196, 30, 30, 0.06);
             background: #fff;
         }
 
         input::placeholder {
-            color: #a8a29e;
+            color: #b8b5b0;
         }
 
         /* Toggle buttons */
         .toggle-group {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .toggle-btn {
             flex: 1;
-            padding: 11px;
-            border-radius: 10px;
-            border: 2px solid #e7e5e4;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1.5px solid #e7e5e4;
             background: #fafaf9;
             color: #78716c;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
@@ -181,7 +217,6 @@
 
         .toggle-btn:hover {
             border-color: #d6d3d1;
-            background: #f5f5f4;
         }
 
         .toggle-btn.active-yes {
@@ -200,16 +235,16 @@
         .option-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
         }
 
         .option-btn {
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 7px 14px;
+            border-radius: 6px;
             border: 1.5px solid #e7e5e4;
             background: #fafaf9;
             color: #78716c;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
@@ -218,7 +253,6 @@
 
         .option-btn:hover {
             border-color: #d6d3d1;
-            background: #f5f5f4;
         }
 
         .option-btn.active {
@@ -228,7 +262,7 @@
             font-weight: 600;
         }
 
-        /* TI conditional */
+        /* Conditional sections */
         .ti-fields {
             max-height: 0;
             overflow: hidden;
@@ -242,57 +276,53 @@
             margin-top: 16px;
         }
 
-        /* Card hidden */
         .card-hidden {
             display: none;
         }
 
         .card-hidden.show {
             display: block;
-            animation: fadeSlide 0.4s ease;
+            animation: fadeSlide 0.35s ease;
         }
 
         /* Send button */
         .btn-send {
             width: 100%;
             padding: 14px;
-            border-radius: 12px;
+            border-radius: 10px;
             border: none;
-            background: linear-gradient(135deg, #c41e1e, #e63c3c);
+            background: #c41e1e;
             color: #fff;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             cursor: pointer;
             font-family: 'Inter', sans-serif;
             transition: all 0.2s;
-            margin-top: 8px;
-            box-shadow: 0 4px 16px rgba(196, 30, 30, 0.25);
+            margin-top: 6px;
+            letter-spacing: 0.2px;
         }
 
         .btn-send:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 24px rgba(196, 30, 30, 0.35);
+            background: #b91c1c;
+            box-shadow: 0 4px 16px rgba(196, 30, 30, 0.2);
         }
 
         .btn-send:active {
-            transform: translateY(0);
+            transform: scale(0.99);
         }
 
         .btn-send:disabled {
-            opacity: 0.5;
+            opacity: 0.4;
             cursor: not-allowed;
-            transform: none;
             box-shadow: none;
         }
 
         .btn-send.sending {
             background: #a8a29e;
-            box-shadow: none;
         }
 
         .btn-send.sent {
-            background: linear-gradient(135deg, #16a34a, #22c55e);
-            box-shadow: 0 4px 16px rgba(22, 163, 74, 0.3);
+            background: #16a34a;
         }
 
         /* Success overlay */
@@ -300,7 +330,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.45);
             backdrop-filter: blur(4px);
             z-index: 100;
             justify-content: center;
@@ -309,46 +339,59 @@
 
         .success-overlay.show {
             display: flex;
-            animation: fadeIn 0.3s ease;
+            animation: fadeIn 0.25s ease;
         }
 
         .success-box {
             background: #fff;
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 16px;
+            padding: 36px;
             text-align: center;
-            max-width: 400px;
+            max-width: 380px;
             width: 90%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            animation: scaleIn 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
         }
 
-        .success-icon {
-            font-size: 56px;
-            margin-bottom: 16px;
+        .success-check {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #f0fdf4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .success-check svg {
+            width: 28px;
+            height: 28px;
+            stroke: #16a34a;
+            stroke-width: 3;
+            fill: none;
         }
 
         .success-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
             color: #1a1a1a;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .success-msg {
-            font-size: 14px;
+            font-size: 13px;
             color: #78716c;
             margin-bottom: 24px;
             line-height: 1.6;
         }
 
         .btn-close {
-            padding: 12px 32px;
-            border-radius: 10px;
-            border: 2px solid #e7e5e4;
+            padding: 10px 28px;
+            border-radius: 8px;
+            border: 1.5px solid #e7e5e4;
             background: #fff;
             color: #78716c;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             font-family: 'Inter', sans-serif;
@@ -363,24 +406,11 @@
         /* Footer */
         .footer {
             text-align: center;
-            margin-top: 24px;
-            padding: 16px;
-            font-size: 11px;
-            color: #a8a29e;
-        }
-
-        .footer a {
-            color: #c41e1e;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Divider accent */
-        .accent-bar {
-            height: 4px;
-            background: linear-gradient(90deg, #c41e1e, #fbbf24, #c41e1e);
-            border-radius: 2px;
-            margin-bottom: 16px;
+            margin-top: 20px;
+            padding: 12px;
+            font-size: 10px;
+            color: #b8b5b0;
+            letter-spacing: 0.2px;
         }
 
         @keyframes fadeIn {
@@ -393,22 +423,10 @@
             }
         }
 
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
         @keyframes fadeSlide {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(-8px);
             }
 
             to {
@@ -425,16 +443,25 @@
 
         <!-- Header -->
         <div class="header">
-            <div class="logo"><span>Kronon</span> Analytics B2B</div>
-            <p>Formulário de Pré-Instalação</p>
+            <div class="partnership">
+                <img src="https://lh3.googleusercontent.com/TYTw_HhYaqgpQ4j-Y7RkYrKTMTmuGP9g5HfQHB6e-eRLo8x4Nf1eD1BN3I7nZ05_8pXXGPrZ22HxJfWHD7c6wCbJ=s120"
+                    alt="Kronon Analytics">
+                <div class="divider"></div>
+                <img src="https://supervarejista.net/wp-content/uploads/2020/03/logomara-super-varejista.png"
+                    alt="SuperVarejista">
+            </div>
+            <div class="pilot-badge">Projeto Piloto</div>
+            <div style="margin-top: 16px;">
+                <div class="header-title">Formulário de Pré-Instalação</div>
+                <div class="header-sub">Kronon Analytics B2B × SuperVarejista</div>
+            </div>
+            <div class="accent-line"></div>
         </div>
-
-        <div class="accent-bar"></div>
 
         <!-- 1. Dados da Empresa -->
         <div class="card">
             <div class="card-header">
-                <div class="card-icon red">🏪</div>
+                <div class="card-num n1">1</div>
                 <div>
                     <div class="card-title">Dados da Empresa</div>
                     <div class="card-subtitle">Informações básicas da loja</div>
@@ -457,17 +484,17 @@
         <!-- 2. TI -->
         <div class="card">
             <div class="card-header">
-                <div class="card-icon yellow">👤</div>
+                <div class="card-num n2">2</div>
                 <div>
                     <div class="card-title">Responsável de TI</div>
-                    <div class="card-subtitle">A loja tem alguém responsável pela TI?</div>
+                    <div class="card-subtitle">A loja possui alguém responsável pela tecnologia?</div>
                 </div>
             </div>
             <div class="field">
-                <label>Tem responsável de TI?</label>
+                <label>Possui responsável de TI?</label>
                 <div class="toggle-group">
-                    <button class="toggle-btn" onclick="toggleTI(true, this)">✅ Sim</button>
-                    <button class="toggle-btn" onclick="toggleTI(false, this)">❌ Não</button>
+                    <button class="toggle-btn" onclick="toggleTI(true, this)">Sim</button>
+                    <button class="toggle-btn" onclick="toggleTI(false, this)">Não</button>
                 </div>
             </div>
             <div class="ti-fields" id="ti_fields">
@@ -480,27 +507,27 @@
             </div>
         </div>
 
-        <!-- 3. Computador (só aparece se NÃO tem TI) -->
+        <!-- 3. Computador -->
         <div class="card card-hidden" id="card_computador">
             <div class="card-header">
-                <div class="card-icon gray">💻</div>
+                <div class="card-num n3">3</div>
                 <div>
                     <div class="card-title">Sobre o Computador</div>
-                    <div class="card-subtitle">Onde o Kronon será instalado</div>
+                    <div class="card-subtitle">Onde o sistema será instalado</div>
                 </div>
             </div>
             <div class="field">
-                <label>Windows 10 ou superior (ou Windows Server)?</label>
+                <label>Sistema operacional Windows 10+ ou Windows Server?</label>
                 <div class="toggle-group">
-                    <button class="toggle-btn" onclick="selectToggle(this, 'windows', true)">✅ Sim</button>
-                    <button class="toggle-btn" onclick="selectToggle(this, 'windows', false)">❌ Não</button>
+                    <button class="toggle-btn" onclick="selectToggle(this, 'windows', true)">Sim</button>
+                    <button class="toggle-btn" onclick="selectToggle(this, 'windows', false)">Não</button>
                 </div>
             </div>
             <div class="field">
                 <label>O computador que acessa o B2B está na mesma rede do ERP?</label>
                 <div class="toggle-group">
-                    <button class="toggle-btn" onclick="selectToggle(this, 'rede', true)">✅ Sim</button>
-                    <button class="toggle-btn" onclick="selectToggle(this, 'rede', false)">❌ Não</button>
+                    <button class="toggle-btn" onclick="selectToggle(this, 'rede', true)">Sim</button>
+                    <button class="toggle-btn" onclick="selectToggle(this, 'rede', false)">Não</button>
                 </div>
             </div>
             <div class="field">
@@ -519,7 +546,7 @@
                 <input type="text" id="antivirus_outro" placeholder="Nome do antivírus">
             </div>
             <div class="field">
-                <label>Navegador para acessar o B2B</label>
+                <label>Navegador utilizado para acessar o B2B</label>
                 <div class="option-group">
                     <button class="option-btn" onclick="selectOption(this, 'navegador')">Chrome</button>
                     <button class="option-btn" onclick="selectOption(this, 'navegador')">Edge</button>
@@ -528,17 +555,20 @@
             </div>
         </div>
 
-        <button class="btn-send" id="btn_send" onclick="enviar()">Enviar Formulário →</button>
-
-        <div class="footer">Powered by <a href="#">Kronon Analytics</a> • Todos os direitos reservados</div>
+        <button class="btn-send" id="btn_send" onclick="enviar()">Enviar formulário</button>
+        <div class="footer">Kronon Analytics × SuperVarejista — Projeto Piloto 2026</div>
     </div>
 
     <!-- Success -->
     <div class="success-overlay" id="success_overlay">
         <div class="success-box">
-            <div class="success-icon">✅</div>
-            <div class="success-title">Enviado com sucesso!</div>
-            <div class="success-msg">Suas informações foram recebidas. Entraremos em contato em breve para agendar a
+            <div class="success-check">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <div class="success-title">Enviado com sucesso</div>
+            <div class="success-msg">Suas informações foram recebidas.<br>Entraremos em contato para agendar a
                 instalação.</div>
             <button class="btn-close"
                 onclick="document.getElementById('success_overlay').classList.remove('show')">Fechar</button>
@@ -582,48 +612,49 @@
         }
 
         function val(id) { return document.getElementById(id).value.trim(); }
-        function emoji(v) { return v === true ? '✅ Sim' : v === false ? '❌ Não' : '⚠️ Não respondido'; }
 
         async function enviar() {
             const nome = val('nome_loja');
             if (!nome) { alert('Preencha o nome da loja.'); return; }
 
             const btn = document.getElementById('btn_send');
-            btn.disabled = true; btn.classList.add('sending'); btn.textContent = '⏳ Enviando...';
+            btn.disabled = true; btn.classList.add('sending'); btn.textContent = 'Enviando...';
 
             let av = state.antivirus || 'Não respondido';
-            if (av === 'Outro') av = val('antivirus_outro') || 'Outro (não especificado)';
+            if (av === 'Outro') av = val('antivirus_outro') || 'Outro';
 
             let tiValue = '';
             if (state.temTI === true) {
                 const parts = [];
-                if (val('ti_nome')) parts.push(`👤 ${val('ti_nome')}`);
-                if (val('ti_telefone')) parts.push(`📱 ${val('ti_telefone')}`);
-                if (val('ti_email')) parts.push(`📧 ${val('ti_email')}`);
+                if (val('ti_nome')) parts.push('Nome: ' + val('ti_nome'));
+                if (val('ti_telefone')) parts.push('Tel: ' + val('ti_telefone'));
+                if (val('ti_email')) parts.push('Email: ' + val('ti_email'));
                 tiValue = parts.length ? parts.join('\n') : 'Sim (dados não preenchidos)';
             } else if (state.temTI === false) {
                 tiValue = 'Não possui';
             } else {
-                tiValue = '⚠️ Não respondido';
+                tiValue = 'Não respondido';
             }
+
+            const yn = v => v === true ? 'Sim' : v === false ? 'Não' : 'Não respondido';
 
             const payload = {
                 embeds: [{
-                    title: "📋 Novo Formulário de Pré-Instalação",
-                    color: 12854046, // red #c41e1e
+                    title: "Novo Formulário — Pré-Instalação",
+                    color: 12854046,
                     fields: [
-                        { name: "🏪 Loja", value: nome, inline: true },
-                        { name: "📄 CNPJ", value: val('cnpj') || 'Não informado', inline: true },
-                        { name: "🏢 Filiais", value: val('filiais') || 'Não informado', inline: true },
-                        { name: "👤 Responsável de TI", value: tiValue, inline: false },
+                        { name: "Loja", value: nome, inline: true },
+                        { name: "CNPJ", value: val('cnpj') || 'Não informado', inline: true },
+                        { name: "Filiais", value: val('filiais') || 'Não informado', inline: true },
+                        { name: "Responsável de TI", value: tiValue, inline: false },
                         ...(state.temTI !== true ? [
-                            { name: "💻 Windows 10+ / Server", value: emoji(state.windows), inline: true },
-                            { name: "🌐 Mesma rede do ERP", value: emoji(state.rede), inline: true },
-                            { name: "🛡️ Antivírus", value: av, inline: true },
-                            { name: "🌎 Navegador", value: state.navegador || 'Não respondido', inline: true },
+                            { name: "Windows 10+ / Server", value: yn(state.windows), inline: true },
+                            { name: "Mesma rede do ERP", value: yn(state.rede), inline: true },
+                            { name: "Antivírus", value: av, inline: true },
+                            { name: "Navegador", value: state.navegador || 'Não respondido', inline: true },
                         ] : []),
                     ],
-                    footer: { text: "Kronon Analytics B2B • Formulário de Pré-Instalação" },
+                    footer: { text: "Kronon Analytics B2B × SuperVarejista" },
                     timestamp: new Date().toISOString()
                 }]
             };
@@ -635,14 +666,13 @@
                     body: JSON.stringify(payload)
                 });
                 if (res.ok || res.status === 204) {
-                    btn.classList.remove('sending'); btn.classList.add('sent'); btn.textContent = '✅ Enviado!';
+                    btn.classList.remove('sending'); btn.classList.add('sent'); btn.textContent = 'Enviado';
                     document.getElementById('success_overlay').classList.add('show');
-                } else { throw new Error(`Status ${res.status}`); }
+                } else { throw new Error('Status ' + res.status); }
             } catch (e) {
                 btn.disabled = false; btn.classList.remove('sending');
-                btn.textContent = 'Enviar Formulário →';
+                btn.textContent = 'Enviar formulário';
                 alert('Erro ao enviar. Verifique sua conexão e tente novamente.');
-                console.error(e);
             }
         }
     </script>
